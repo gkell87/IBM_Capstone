@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'capstone', # table name
+        'USER': 'casaos',
+        'PASSWORD': 'casaos',
+        'HOST': '192.168.1.166',
+        'PORT': '5432',
     }
 }
 
@@ -134,4 +138,10 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'frontend/static')
+]
+
+ALLOWED_HOSTS=['localhost','127.0.0.1']
+CSRF_TRUSTED_ORIGINS=['http://127.0.0.1:8000/']
+
